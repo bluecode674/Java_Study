@@ -1,14 +1,14 @@
 import java.io.*;
 import java.net.*;
 
-public class Webserver2 {
+public class Webserver1 {
 	public static void main(String[] args) {
 		try {
 			ServerSocket srvsock = new ServerSocket(80);
 			System.out.println("Server started ... \n");
 			while(true) {
 				Socket sock = srvsock.accept();
-				ServerThread2 thread = new ServerThread2(sock);
+				ServerThread1 thread = new ServerThread1(sock);
 				thread.start();
 			}
 		} catch (IOException ex) {
@@ -17,9 +17,9 @@ public class Webserver2 {
 	}
 }
 
-class ServerThread2 extends Thread {
+class ServerThread1 extends Thread {
 	Socket sock;
-	public ServerThread2(Socket sock) { this.sock = sock; }
+	public ServerThread1(Socket sock) { this.sock = sock; }
 	public void run() {
 		try {
 			InputStream is = sock.getInputStream();
